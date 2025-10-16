@@ -1,4 +1,4 @@
-from __future__ import annotations
+﻿from __future__ import annotations
 
 import csv
 import json
@@ -195,6 +195,12 @@ class BrainSegmentationWindow(QMainWindow):
         self.status_bar = QStatusBar(self)
         self.status_bar.setSizeGripEnabled(False)
         self.setStatusBar(self.status_bar)
+
+        footer = QLabel("Dr. Öğr. Üyesi NURULLAH ÖZTÜRK")
+        footer.setStyleSheet(
+            "color: #475569; font-size: 12px; font-weight: 600; padding-left: 12px;"
+        )
+        self.status_bar.addPermanentWidget(footer)
 
         tabs = QTabWidget()
         tabs.setObjectName("mainTabs")
@@ -1219,3 +1225,4 @@ def launch_app(model_path: Path | str, database_url: str | None = None) -> None:
 
 if __name__ == "__main__":
     launch_app(Path("alzheimer_cnn_torch.pt"))
+
